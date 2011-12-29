@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/home/pzhang/.mozilla/firefox/hm84o3xq.default/extensions/cpmanager@mozillaonline.com'
+let g:netrw_dirhist_2='/home/pzhang/.mozilla'
+let g:netrw_dirhist_3='/home/pzhang/Work_Mozilla/source_code/appcenter/chrome'
+let g:netrw_dirhist_4='/home/pzhang/Work_Mozilla/source_code/appcenter/chrome/skin'
