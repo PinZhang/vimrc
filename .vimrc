@@ -26,9 +26,12 @@ set number
 set nowrap
 
 " Show current line
-au WinLeave * set nocursorline nocursorcolumn
+au WinLeave * set cursorline nocursorcolumn
 au WinEnter * set cursorline nocursorcolumn
 set cursorline nocursorcolumn
+
+" Jump to next line automatically when cursor move to the end of the current line.
+set whichwrap+=h,l
 
 " 自动检测语法
 syntax on
@@ -90,9 +93,10 @@ map ,n :NERDTreeFind<cr>
 " Change to Hexmode
 " =============================== 
 " ex command for toggling hex mode - define mapping if desired
-command -bar Hexmode call ToggleHex()
+command! -bar Hexmode call ToggleHex()
+ 
 " helper function to toggle hex mode
-function ToggleHex()
+function! ToggleHex()
   " hex mode should be considered a read-only operation
   " save values for modified and read-only for restoration later,
   " and clear the read-only flag for now
@@ -129,3 +133,38 @@ function ToggleHex()
   let &modifiable=l:oldmodifiable
 endfunction
 
+
+" ========================
+" Source xmledit with file type: html, xsl
+" ========================
+au Filetype html,xml,xsl source ~/.vim/bundle/xmledit/plugin/xml.vim
+
+" ==========================
+" Behave like mswin, like <C-c> <C-v> to copy and paste
+" ==========================
+source $VIMRUNTIME/mswin.vim
+behave mswin
+" keep file type as unix file.
+set ff=unix
+
+" =================
+" Close bracelet, quote etc.
+" =================
+:inoremap ( ()<ESC>i
+:inoremap ) <c-r>=ClosePair(')')<CR>
+:inoremap { {}<ESC>i
+:inoremap } <c-r>=ClosePair('}')<CR>
+:inoremap [ []<ESC>i
+:inoremap ] <c-r>=ClosePair(']')<CR>
+:inoremap < <><ESC>i
+:inoremap > <c-r>=ClosePair('>')<CR>
+:inoremap " ""<ESC>i
+:inoremap ' ''<ESC>i
+
+function ClosePair(char)
+  if getline('.')[col('.') - 1] == a:char
+    return "\<Right>"
+  else
+    return a:char
+  endif
+endf
