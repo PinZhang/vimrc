@@ -17,7 +17,7 @@ call pathogen#infect()
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese,prc,taiwan,latin-1
 set termencoding=utf-8
-set fileformats=dos,unix
+set fileformats=unix,dos
 
 " show line number
 set number
@@ -144,8 +144,6 @@ au Filetype html,xml,xsl source ~/.vim/bundle/xmledit/plugin/xml.vim
 " ==========================
 source $VIMRUNTIME/mswin.vim
 behave mswin
-" keep file type as unix file.
-set ff=unix
 
 " =================
 " Close bracelet, quote etc.
