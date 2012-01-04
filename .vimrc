@@ -57,12 +57,14 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " ======================
 " Configure editor with tabs
 " ======================
-set textwidth=120 " break lines when line length increases
-set tabstop=4     " use 4 spaces to represent tab
-set softtabstop=4
-set shiftwidth=4  " number of spaces to use for auto indent
-set autoindent    " copy indent from current line when starting a new line
-
+set cindent
+set smartindent
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set cinkeys=0{,0},:,0#,!,!^F
+    
 " ======================
 " Windows move
 " ======================
@@ -159,7 +161,7 @@ behave mswin
 :inoremap " ""<ESC>i
 :inoremap ' ''<ESC>i
 
-function ClosePair(char)
+function! ClosePair(char)
   if getline('.')[col('.') - 1] == a:char
     return "\<Right>"
   else
