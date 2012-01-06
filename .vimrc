@@ -13,6 +13,9 @@ endif
 " plugin to manage plugins
 call pathogen#infect() 
 
+" open filetype plugin
+filetype plugin on 
+
 " 字符编码设置
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese,prc,taiwan,latin-1
@@ -57,12 +60,13 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " ======================
 " Configure editor with tabs
 " ======================
-set cindent
-set smartindent
+" set cindent
+" set smartindent
 set autoindent
 set expandtab
-set tabstop=2
-set shiftwidth=2
+" set softtabstop=4
+set tabstop=4
+set shiftwidth=4
 " set cinkeys=0{,0},:,0#,!,!^F
     
 " ======================
@@ -156,8 +160,8 @@ behave mswin
 :inoremap } <c-r>=ClosePair('}')<CR>
 :inoremap [ []<ESC>i
 :inoremap ] <c-r>=ClosePair(']')<CR>
-:inoremap < <><ESC>i
-:inoremap > <c-r>=ClosePair('>')<CR>
+" :inoremap < <><ESC>i
+" ":inoremap > <c-r>=ClosePair('>')<CR>
 :inoremap " ""<ESC>i
 :inoremap ' ''<ESC>i
 
