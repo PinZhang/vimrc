@@ -9,6 +9,9 @@ else
     colorscheme evening
 endif
 
+" set instant search and highlight search
+set is
+set hls
 
 " plugin to manage plugins
 call pathogen#infect() 
@@ -44,6 +47,11 @@ syntax on
 " ======================
 " Python 文件的一般设置，比如不要 tab 等
 autocmd FileType python setlocal et | setlocal sta | setlocal sw=4
+" Do not show .pyc files
+let NERDTreeIgnore = ['\.pyc$']
+
+" For Java file, keep tab
+autocmd FileType java setlocal noet 
 
 " Python Unittest 的一些设置
 " 可以让我们在编写 Python 代码及 unittest 测试时不需要离开 vim
@@ -77,6 +85,11 @@ nmap <C-K> <C-w>k
 nmap <C-H> <C-w>h
 nmap <C-L> <C-w>l
 
+" make hjkl movements accessible from insert mode via the <Alt> modifier key
+inoremap <A-h> <C-o>h
+inoremap <A-j> <C-o>j
+inoremap <A-k> <C-o>k
+inoremap <A-l> <C-o>l
 
 " ===========
 " Git
