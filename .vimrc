@@ -42,6 +42,13 @@ set whichwrap+=h,l
 " 自动检测语法
 syntax on
 
+" 80 column layout
+" highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
+set textwidth=80
+set cc=+1
+highlight ColorColumn guibg=#2d2d2d ctermbg=246
+
 " ======================
 " Run command automatically when read/edit/save files
 " ======================
@@ -51,7 +58,7 @@ autocmd FileType python setlocal et | setlocal sta | setlocal sw=4
 let NERDTreeIgnore = ['\.pyc$']
 
 " For Java file, keep tab
-autocmd FileType java setlocal noet 
+autocmd FileType java,c,cpp setlocal noet
 
 " Python Unittest 的一些设置
 " 可以让我们在编写 Python 代码及 unittest 测试时不需要离开 vim
@@ -69,14 +76,14 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 " Configure editor with tabs
 " ======================
 " set cindent
-" set smartindent
-set autoindent
+set smartindent
+" set autoindent
 set expandtab
 " set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 " set cinkeys=0{,0},:,0#,!,!^F
-    
+
 " ======================
 " Windows move
 " ======================
@@ -91,6 +98,9 @@ inoremap <A-j> <C-o>j
 inoremap <A-k> <C-o>k
 inoremap <A-l> <C-o>l
 
+" Show space and tab character
+set list listchars=tab:→\ ,trail:·
+
 " ===========
 " Git
 " ===========
@@ -101,9 +111,18 @@ set statusline=”%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%{(&fenc==\"\")?&enc:&fenc}%{(&bo
 " ===============================
 " NERDTree settings
 " ===============================
-map <F5> :NERDTree<cr>
-map <F6> :NERDTreeClose<cr>
+" map <F5> :NERDTree<cr>
+" map <F6> :NERDTreeClose<cr>
 map ,n :NERDTreeFind<cr>
+
+" Open and close the NERD_tree.vim separately
+nmap <F5>  :TrinityToggleNERDTree<CR> 
+" Open and close the taglist.vim separately
+nmap <F6>  :TrinityToggleTagList<CR>
+" Open and close the srcexpl.vim separately
+nmap <F7>   :TrinityToggleSourceExplorer<CR>
+" Open and close all the three plugins on the same time
+nmap <F8>   :TrinityToggleAll<CR>
 
 " Open NERDTree automatically
 " au VimEnter *  NERDTree
@@ -164,24 +183,3 @@ au Filetype html,xml,xsl source ~/.vim/bundle/xmledit/plugin/xml.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
-" =================
-" Close bracelet, quote etc.
-" =================
-:inoremap ( ()<ESC>i
-:inoremap ) <c-r>=ClosePair(')')<CR>
-:inoremap { {}<ESC>i
-:inoremap } <c-r>=ClosePair('}')<CR>
-:inoremap [ []<ESC>i
-:inoremap ] <c-r>=ClosePair(']')<CR>
-" :inoremap < <><ESC>i
-" ":inoremap > <c-r>=ClosePair('>')<CR>
-:inoremap " ""<ESC>i
-:inoremap ' ''<ESC>i
-
-function! ClosePair(char)
-  if getline('.')[col('.') - 1] == a:char
-    return "\<Right>"
-  else
-    return a:char
-  endif
-endf
