@@ -43,9 +43,9 @@ set whichwrap+=h,l
 syntax on
 
 " 80 column layout
-" highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
-" match OverLength /\%81v.\+/
-set textwidth=80
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+set textwidth=0
 set cc=+1
 highlight ColorColumn guibg=#2d2d2d ctermbg=246
 
@@ -79,7 +79,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 set smartindent
 " set autoindent
 set expandtab
-" set softtabstop=4
+set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 " set cinkeys=0{,0},:,0#,!,!^F
