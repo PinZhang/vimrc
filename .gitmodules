@@ -1,0 +1,30 @@
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git
+[submodule ".vim/bundle/git-vim"]
+	path = .vim/bundle/git-vim
+	url = git://github.com/motemen/git-vim.git
+[submodule ".vim/bundle/conque-shell"]
+	path = .vim/bundle/conque-shell
+	url = git://github.com/vim-scripts/Conque-Shell.git
+[submodule ".vim/bundle/js-syntax"]
+	path = .vim/bundle/js-syntax
+	url = git://github.com/jelera/vim-javascript-syntax.git
+[submodule ".vim/bundle/jsbeautify"]
+	path = .vim/bundle/jsbeautify
+	url = git://github.com/maksimr/vim-jsbeautify.git
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/snipmate"]
+	path = .vim/bundle/snipmate
+	url = https://github.com/msanders/snipmate.vim
+[submodule ".vim/bundle/taglist"]
+	path = .vim/bundle/taglist
+	url = git://github.com/vim-scripts/taglist.vim.git
+[submodule ".vim/bundle/xmledit"]
+	path = .vim/bundle/xmledit
+	url = git://github.com/sukima/xmledit.git
+[submodule ".vim/bundle/vim-git-branch-info"]
+	path = .vim/bundle/vim-git-branch-info
+	url = git://github.com/taq/vim-git-branch-info.git
