@@ -226,6 +226,13 @@ function! Find(name)
 endfunction
 command! -nargs=1 Find :call Find("<args>")
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+" Jump html tag
+runtime macros/matchit.vim
+
+" Fix the difficult-to-read default setting for diff text highlighting.  The
+" " bang (!) is required since we are overwriting the DiffText setting. The
+" highlighting
+" " for "Todo" also looks nice (yellow) if you don't like the "MatchParen"
+" colors.
+highlight! link DiffText MatchParen
 
