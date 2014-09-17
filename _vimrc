@@ -3,6 +3,9 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+set langmenu=none
+language messages none 
+
 set guifont=Consolas:h12
 set guifontwide=MingLiU:h12
 
@@ -51,6 +54,19 @@ set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,chinese,prc,taiwan,latin-1
 set termencoding=utf-8
 set fileformats=dos,unix
+
+if has("win32")
+  set fileencoding=chinese
+else
+  set fileencoding=utf-8
+endif
+
+"解决菜单乱码
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+
+"解决consle输出乱码
+language messages zh_CN.utf-8
 
 " show line number
 set number
