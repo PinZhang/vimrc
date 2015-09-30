@@ -115,14 +115,12 @@ set statusline=”%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%{(&fenc==\"\")?&enc:&fenc}%{(&bo
 " map <F6> :NERDTreeClose<cr>
 map ,n :NERDTreeFind<cr>
 
-" Open and close the NERD_tree.vim separately
-nmap <F5>  :TrinityToggleNERDTree<CR> 
-" Open and close the taglist.vim separately
-nmap <F6>  :TrinityToggleTagList<CR>
-" Open and close the srcexpl.vim separately
-nmap <F7>   :TrinityToggleSourceExplorer<CR>
-" Open and close all the three plugins on the same time
-nmap <F8>   :TrinityToggleAll<CR>
+" ===============================
+" Taglist settings
+" ===============================
+map ,m :TlistOpen<cr>
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+let Tlist_Use_Right_Window = 1
 
 " Open NERDTree automatically
 " au VimEnter *  NERDTree
